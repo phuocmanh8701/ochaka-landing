@@ -1,0 +1,34 @@
+/* Min Width */
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1025px) {
+}
+@media (min-width: 1200px) {
+}
+@media (min-width: 1440px) {
+}
+@media (min-width: 1600px) {
+}
+
+/* Max Width */
+@media (max-width: 575px) {
+}
+@media (max-width: 767px) {
+}
+@media (max-width: 991px) {
+    .tf-btn .icon {
+        font-size: 18px;
+    }
+}
+@media (max-width: 1024px) {
+}
+@media (max-width: 1199px) {
+}
+@media (max-width: 1439px) {
+}
+@media (max-width: 1599px) {
+}
