@@ -348,24 +348,23 @@ img {
 .row {
     margin-right: -16px;
     margin-left: -16px;
-}
 
-.row>* {
-    padding-left: 16px;
-    padding-right: 16px;
-}
+    >* {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 
-@media (min-width: 1200px) {
-    .row {
+    @include res(xl, min) {
         margin-right: -24px;
         margin-left: -24px;
-    }
 
-    .row>* {
-        padding-left: 24px;
-        padding-right: 24px;
+        >* {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
     }
 }
+
 
 .container {
     max-width: 1472px;
@@ -373,32 +372,27 @@ img {
     margin: auto;
     padding-left: 16px;
     padding-right: 16px;
-}
 
-@media (min-width: 1200px) {
-    .container {
+    @include res(xl, min) {
         max-width: 1488px;
         padding-left: 24px;
         padding-right: 24px;
     }
 }
 
+
 .container-full {
     width: 100%;
     max-width: 1920px;
     margin: 0 auto;
     padding: 0px 16px;
-}
 
-@media (min-width: 1200px) {
-    .container-full {
+    @include res(xl, min) {
         padding-left: 24px;
         padding-right: 24px;
     }
-}
 
-@media (min-width: 1600px) {
-    .container-full {
+    @include res(xxxl, min) {
         padding-left: 48px;
         padding-right: 48px;
     }
@@ -409,28 +403,42 @@ img {
     max-width: 1920px;
     margin: 0 auto;
     padding: 0px 16px;
-}
 
-@media (min-width: 1200px) {
-    .container-full-2 {
+    @include res(xl, min) {
         padding-left: 24px;
         padding-right: 24px;
     }
-}
 
-@media (min-width: 1600px) {
-    .container-full-2 {
+    @include res(xxxl, min) {
         padding-left: 40px;
         padding-right: 40px;
     }
 }
 
+
 .container-layout-right {
-    width: calc(100vw - (100vw - 1548px) / 2 - 4px);
+    width: calc(100vw - ((100vw - 1548px) / 2) - 4px);
     margin-right: unset;
     max-width: 100%;
     margin-left: auto;
     padding-left: 15px;
+}
+
+.container-filter {
+    max-width: 1464px;
+    margin: 0 auto;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    .row {
+        margin-right: -12px;
+        margin-left: -12px;
+
+        >* {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+    }
 }
 
 svg path {
@@ -691,8 +699,7 @@ a:hover {
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 
-    :hover {
-
+    &:hover {
         color: var(--primary) !important;
     }
 }
@@ -789,12 +796,21 @@ a:hover {
     &:hover {
         background-color: var(--line-3);
     }
+
+    @include res(xxl) {
+        padding: 13px 25px;
+    }
 }
 
 /* -- Header -- */
 .tf-header {
     padding-top: 24px;
     padding-bottom: 24px;
+
+    @include res(lg) {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
 }
 
 header {
@@ -808,23 +824,127 @@ header {
     background: rgba(255, 255, 255, 0.09);
 }
 
+.header-inner {
+    display: flex;
+    gap: 12px;
+}
+
+.header-left,
+.header-right {
+    flex: 1;
+}
+
+.header-right {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-mobile-menu {
+    @include flex(center, center);
+    height: 26px;
+    width: 26px;
+    position: relative;
+
+    span {
+        @include transition3;
+        display: block;
+        width: 26px;
+        height: 2px;
+        background-color: var(--black);
+        border-radius: 5px;
+    }
+
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        width: 26px;
+        height: 2px;
+        background-color: var(--black);
+        border-radius: 1px;
+        @include transition3;
+    }
+
+    &::before {
+        top: 5px;
+    }
+
+    &::after {
+        bottom: 5px;
+    }
+
+    &.style-white {
+
+        span,
+        &::after,
+        &::before {
+            background-color: var(--white)
+        }
+    }
+}
+
 .nav-menu {
     display: flex;
     justify-content: center;
 }
 
 .navigation {
-    display: flex;
-    gap: 32px;
-    border-radius: 999px;
-    padding: 15px 31px;
-    border: 1px solid #ffffff1a;
-    backdrop-filter: blur(4px);
-    background: #ffffff0d;
+    &:not(.mobile) {
+        display: flex;
+        gap: 16px;
+        border-radius: 999px;
+        padding: 15px 31px;
+        border: 1px solid #ffffff1a;
+        backdrop-filter: blur(4px);
+        background: #ffffff0d;
+    }
+
+    &.mobile {
+        a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+        }
+    }
+
+    @include res(xxl, min) {
+        gap: 32px;
+    }
 }
 
 .nav-item {
     font-weight: 700;
+}
+
+.icon-close-popup {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--white);
+    z-index: 2;
+    padding: 10px;
+}
+
+.canvas-mb {
+    border: 0 !important;
+    width: 320px !important;
+}
+
+.canvas-header,
+.canvas-body {
+    padding: 24px;
+}
+
+.canvas-header {
+    background-color: var(--body);
+}
+
+.canvas-body {
+    overscroll-behavior-y: contain;
+    overflow-y: auto;
+    flex: 1;
 }
 
 .text-linear {
@@ -850,7 +970,6 @@ header {
 .link-linear::before {
     content: attr(data-text);
     position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -899,13 +1018,23 @@ header {
     .group-btn {
         display: flex;
         justify-content: center;
-        gap: 24px;
+        gap: 12px 24px;
     }
 
     @include res(xxl, min) {
         .group-btn {
             >* {
                 min-width: 218px;
+            }
+        }
+    }
+
+    @include res(sm) {
+        .group-btn {
+            flex-wrap: wrap;
+
+            >* {
+                width: 100%;
             }
         }
     }
@@ -937,6 +1066,7 @@ header {
     top: -104px;
     left: 0;
     right: 0;
+    bottom: 0;
 
     img {
         width: 100%;
@@ -958,6 +1088,9 @@ header {
     .wrap {
         display: flex;
         justify-content: center;
+        gap: 12px;
+        overflow: auto;
+        white-space: nowrap;
     }
 
     .s-item {
@@ -1009,8 +1142,11 @@ header {
 }
 
 .demo-filter {
+    // display: flex;
+    // gap: 24px;
+
     >* {
-        width: calc(100% - 92px);
+        // width: calc(100% / 4 - 92px);
     }
 }
 
@@ -1018,8 +1154,107 @@ header {
     display: flex;
     gap: 12px;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
+    overflow: auto;
+    white-space: nowrap
 }
+
+.sw-dot-default {
+    margin-top: 24px;
+
+    .swiper-pagination-bullet {
+        width: 14px;
+        height: 14px;
+        background-color: transparent;
+        position: relative;
+        border: 1px solid transparent;
+        @include transition3;
+        opacity: 1;
+
+        &::before {
+            position: absolute;
+            content: "";
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--text-2);
+            @include transition3;
+        }
+
+        &.swiper-pagination-bullet-active {
+            border: 1px solid var(--black);
+
+            &::before {
+                background-color: var(--black);
+            }
+        }
+
+        @include res(md) {
+            width: 16px;
+            height: 16px;
+
+            &::before {
+                width: 6px;
+                height: 6px;
+            }
+        }
+    }
+
+    &.style-white {
+        .swiper-pagination-bullet {
+            &.swiper-pagination-bullet-active {
+                border: 1px solid var(--white);
+
+                &::before {
+                    background-color: var(--white);
+                }
+            }
+
+            &::before {
+                background-color: #FFFFFF99;
+            }
+        }
+    }
+
+    &.type-small {
+        gap: 5px;
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+
+            &::before {
+                width: 4px;
+                height: 4px;
+                background-color: #AFAFAF;
+            }
+
+            &.swiper-pagination-bullet-active {
+                border: 1px solid var(--black);
+
+                &::before {
+                    background-color: var(--black);
+                }
+            }
+        }
+    }
+
+    @include res(xl, min) {
+        margin-top: 35px;
+    }
+
+    @include res(xxl, min) {
+        margin-top: 56px;
+    }
+}
+
+.home-demo_box {
+    margin-bottom: 40px;
+}
+
 
 /* Animation */
 @keyframes moveGradient {
