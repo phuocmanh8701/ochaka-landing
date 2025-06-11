@@ -280,21 +280,6 @@ img {
   padding-left: 15px;
 }
 
-.container-filter {
-  max-width: 1464px;
-  margin: 0 auto;
-  padding-left: 12px;
-  padding-right: 12px;
-}
-.container-filter .row {
-  margin-right: -12px;
-  margin-left: -12px;
-}
-.container-filter .row > * {
-  padding-left: 12px;
-  padding-right: 12px;
-}
-
 svg path {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -364,17 +349,20 @@ input[type=color] {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  width: 100%;
   /* line-height: 26px;
   font-size: 16px;
   font-weight: 400;
   border-radius: 99px;
   padding: 18px 23px;
-  width: 100%;
   background: #FFFFFF1A;
   color: #fff;
   backdrop-filter: blur(12px); */
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: white;
 }
-
 textarea::placeholder,
 input[type=text]::placeholder,
 input[type=password]::placeholder,
@@ -390,15 +378,10 @@ input[type=url]::placeholder,
 input[type=search]::placeholder,
 input[type=tel]::placeholder,
 input[type=color]::placeholder {
-  /* color: #4D4E4F;
-  line-height: 26px;
-  font-size: 16px;
-  font-weight: 400;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -ms-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; */
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  color: white;
 }
 
 ::-webkit-input-placeholder {
@@ -654,7 +637,7 @@ header {
 
 .header-sticky {
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .header-inner {
@@ -818,10 +801,12 @@ header {
 /* Section */
 .s-sub-title {
   font-weight: normal;
-  max-width: 792px;
   width: 100%;
   margin: 0 auto;
   text-align: center;
+}
+.s-sub-title.wid-fix {
+  max-width: 792px;
 }
 
 .s-banner-hero {
@@ -949,6 +934,17 @@ header {
   color: transparent;
 }
 
+@media (max-width: 575px) {
+  .demo-filter {
+    margin-left: -6px;
+    margin-right: -6px;
+  }
+  .demo-filter > * {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}
+
 .posttype-filter {
   display: flex;
   gap: 12px;
@@ -1045,6 +1041,106 @@ header {
 
 .home-demo_box {
   margin-bottom: 40px;
+  padding: 20px 12px;
+  border: 1px solid #121212;
+  border-radius: 16px;
+  display: grid;
+  gap: 16px;
+  background-color: #121212;
+}
+.home-demo_box .dot-top {
+  display: flex;
+  gap: 8px;
+}
+.home-demo_box .dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #414141;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.home-demo_box .demo-name {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: capitalize;
+}
+.home-demo_box:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+.home-demo_box:hover .dot {
+  background-color: var(--primary);
+}
+@media (max-width: 767px) {
+  .home-demo_box {
+    margin-bottom: 32px;
+  }
+}
+
+.form-get_email {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 98.21%);
+  border: 1px solid rgba(255, 255, 255, 0.1019607843);
+  backdrop-filter: blur(4px);
+  padding: 11px;
+  border-radius: 999px;
+}
+.form-get_email input {
+  background: rgba(255, 255, 255, 0.1019607843);
+  border: 1px solid rgba(255, 255, 255, 0.1019607843);
+  backdrop-filter: blur(4px);
+  padding: 15px 31px;
+  border-radius: 999px;
+}
+.form-get_email .ip {
+  flex: 1;
+}
+.form-get_email .form-content {
+  display: flex;
+  gap: 12px;
+}
+@media (max-width: 1439px) {
+  .form-get_email input {
+    padding: 13px 25px;
+  }
+}
+@media (max-width: 575px) {
+  .form-get_email {
+    border-radius: 16px;
+  }
+  .form-get_email .form-content {
+    flex-direction: column;
+  }
+  .form-get_email .form-content > * {
+    width: 100%;
+  }
+}
+
+.wg-feature {
+  background-color: #121212;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 31px;
+  text-align: center;
+}
+.wg-feature .feature_highlight {
+  margin-bottom: 16px;
+}
+.wg-feature .feature_name {
+  margin-bottom: 8px;
+}
+.wg-feature .feature_sub {
+  color: rgba(255, 255, 255, 0.5019607843);
+  margin-bottom: 32px;
+}
+.wg-feature .feature_image {
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 /* Animation */
