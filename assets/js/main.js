@@ -245,15 +245,12 @@
 
     /* animateImgScroll
     -------------------------------------------------------------------------------------*/
-    const scrollBanners = () => {
-        const bannerStripes = document.querySelectorAll(".scroll-banners");
-        if (!bannerStripes.length) return;
+    const anime = () => {
+        $(".scroll-banners").each(function () {
+            var $element = $(this);
 
-        bannerStripes.forEach((element) => {
-            const $element = $(element);
-
-            const triggerSettings = {
-                trigger: element,
+            var triggerSettings = {
+                trigger: this,
                 start: "top bottom",
                 end: "bottom top",
                 scrub: 1,
@@ -262,7 +259,7 @@
 
             if ($element.hasClass("effect-left")) {
                 gsap.fromTo(
-                    element,
+                    this,
                     { x: "-25%" },
                     {
                         x: "0%",
@@ -272,7 +269,7 @@
                 );
             } else if ($element.hasClass("effect-right")) {
                 gsap.fromTo(
-                    element,
+                    this,
                     { x: "0%" },
                     {
                         x: "-25%",
@@ -281,6 +278,26 @@
                     }
                 );
             }
+        });
+
+        $(".effect-scroll").each(function () {
+            const $item = $(this);
+
+            gsap.fromTo(
+                $item,
+                { y: "10%" },
+                {
+                    y: "-10%",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: $item[0],
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true,
+                        markers: false,
+                    },
+                }
+            );
         });
     };
 
@@ -308,7 +325,7 @@
     $(function () {
         headerSticky();
         infiniteSlide();
-        scrollBanners();
+        anime();
         filterIsotope();
     });
 })(jQuery);
