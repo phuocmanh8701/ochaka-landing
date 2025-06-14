@@ -285,14 +285,38 @@
 
             gsap.fromTo(
                 $item,
-                { y: "10%" },
+                { y: "20%" },
                 {
-                    y: "-10%",
+                    y: "-20%",
                     ease: "none",
                     scrollTrigger: {
                         trigger: $item[0],
-                        start: "top bottom",
-                        end: "bottom top",
+                        start: "top 100%",
+                        end: "bottom 0%",
+                        scrub: true,
+                        markers: false,
+                    },
+                }
+            );
+        });
+
+        $(".effect-scroll-2").each(function () {
+            const $item = $(this);
+
+            gsap.fromTo(
+                $item,
+                {
+                    rotateX: -20,
+                    opacity: 0.2,
+                },
+                {
+                    rotateX: 0,
+                    opacity: 1,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: $item[0],
+                        start: "top 90%",
+                        end: "top 30%",
                         scrub: true,
                         markers: false,
                     },
@@ -300,7 +324,9 @@
             );
         });
     };
-
+    $(window).on("load", function () {
+        anime();
+    });
     /* filterIsotope
     -------------------------------------------------------------------------------------*/
     var filterIsotope = function () {
@@ -322,10 +348,38 @@
             });
         }
     };
+
+    /* Couter
+    -------------------------------------------------------------------------------------*/
+    var counter = function () {
+        if ($(document.body).hasClass("counter-scroll")) {
+            var a = 0;
+            $(window).scroll(function () {
+                var oTop = $(".counter").offset().top - window.innerHeight;
+                if (a == 0 && $(window).scrollTop() > oTop) {
+                    if ($().countTo) {
+                        $(".counter")
+                            .find(".number")
+                            .each(function () {
+                                var to = $(this).data("to"),
+                                    speed = $(this).data("speed");
+                                $(this).countTo({
+                                    to: to,
+                                    speed: speed,
+                                });
+                            });
+                    }
+                    a = 1;
+                }
+            });
+        }
+    };
     $(function () {
         headerSticky();
         infiniteSlide();
-        anime();
+        // anime();
         filterIsotope();
+        counter();
+        new WOW().init();
     });
 })(jQuery);
