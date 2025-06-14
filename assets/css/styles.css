@@ -796,13 +796,11 @@ a:hover {
   align-items: center;
   gap: 12px;
 }
-.tf-btn.hv-linear:hover::after,
-.tf-btn.hv-linear .active::after {
+.tf-btn.hv-linear:hover::after, .tf-btn.hv-linear.active::after {
   opacity: 1;
   visibility: visible;
 }
-.tf-btn.hv-linear:hover .text-btn,
-.tf-btn.hv-linear .active .text-btn {
+.tf-btn.hv-linear:hover .text-btn, .tf-btn.hv-linear.active .text-btn {
   color: var(--black);
 }
 .tf-btn.btn-bg-linear {
@@ -1157,6 +1155,78 @@ header {
 @media (max-width: 1199px) {
   .s-banner-hero {
     padding-bottom: 60px;
+  }
+}
+
+.slider-home .swiper-slide {
+  transition: all 0.3s ease;
+  height: 720px;
+  padding-top: 232px;
+}
+.slider-home .swiper-slide.swiper-slide-active {
+  padding-top: 0;
+}
+.slider-home .swiper-slide.swiper-slide-active .image::after {
+  opacity: 1;
+  visibility: visible;
+}
+.slider-home .swiper-slide-prev,
+.slider-home .swiper-slide-next {
+  padding-top: 112px;
+}
+.slider-home .image {
+  padding: 30px;
+  padding-bottom: 0;
+  background-color: #191E24;
+  position: relative;
+  overflow: hidden;
+}
+.slider-home .image img {
+  width: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  object-position: top;
+}
+.slider-home .image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, #fdb79e 0%, #fdd1b1 25%, #feeacd 50%, #fdd1b1 75%, #fdb79e 100%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  animation: bgMoveSmooth 3s linear infinite;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+@media (max-width: 1199px) {
+  .slider-home .image {
+    padding: 20px;
+    padding-bottom: 0;
+  }
+  .slider-home .image img {
+    height: 100%;
+  }
+  .slider-home .swiper-slide {
+    padding-top: 90px;
+    height: unset;
+  }
+  .slider-home .swiper-slide.swiper-slide-active {
+    padding-top: 0;
+  }
+  .slider-home .swiper-slide-prev,
+  .slider-home .swiper-slide-next {
+    padding-top: 60px;
   }
 }
 
@@ -2021,6 +2091,9 @@ header {
   z-index: 5;
 }
 @media (max-width: 1199px) {
+  .device-mobile_item {
+    gap: 12px;
+  }
   .device-mobile_item video {
     border-radius: 60px;
   }
