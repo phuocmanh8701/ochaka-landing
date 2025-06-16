@@ -374,9 +374,9 @@
                 });
             });
 
-            $(".posttype-filter li").on("click", function () {
-                var selector = $(this).find("a").attr("data-filter");
-                $(".posttype-filter li").removeClass("active");
+            $(".posttype-filter a").on("click", function () {
+                var selector = $(this).attr("data-filter");
+                $(".posttype-filter a").removeClass("active");
                 $(this).addClass("active");
                 $container.isotope({ filter: selector });
                 anime();
