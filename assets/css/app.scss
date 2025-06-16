@@ -902,16 +902,61 @@ a:hover {
     border-radius: 999px;
     transition: all 0.3s ease;
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 98.21%);
-    border: 1px solid #FFFFFF1A;
+    // background: rgba(255, 255, 255, 0.05);
+    // border: 1px solid #FFFFFF1A;
     backdrop-filter: blur(4px);
+    height: 56px;
 
     .icon {
         font-size: 24px;
     }
 
+    &.hv-light-skew {
+        position: relative;
+        overflow: hidden;
+
+        &::before {
+            background-image: -o-linear-gradient(left, transparent, #fdb79e, transparent);
+            background-image: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(#fdb79e #fdb79e), to(transparent));
+            background-image: linear-gradient(90deg, transparent, #fdb79e, transparent);
+            content: "";
+            left: 150%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            -webkit-transform: skew(-20deg);
+            -ms-transform: skew(-20deg);
+            transform: skew(-20deg);
+            width: 200%;
+            z-index: 3;
+        }
+
+        &:hover {
+            &::before {
+                -webkit-animation: shine .75s cubic-bezier(.01, .56, 1, 1);
+                animation: shine .75s cubic-bezier(.01, .56, 1, 1);
+            }
+        }
+    }
+
+    .overlay_text {
+        display: flex;
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        right: 1px;
+        bottom: 1px;
+        border-radius: 999px;
+        background-color: var(--body);
+        z-index: 2;
+        @include transition3();
+        color: white;
+    }
+
     &.btn-line-linear {
         border-color: transparent;
         position: relative;
+        overflow: hidden;
 
         &::after {
             content: "";
@@ -932,23 +977,16 @@ a:hover {
             background-size: 200% 100%;
             background-position: 200% 0;
             animation: bgMove 3s linear infinite;
+            @include transition3();
         }
 
         &::before {
-            content: "";
-            position: absolute;
-            top: 1px;
-            left: 1px;
-            right: 1px;
-            bottom: 1px;
-            border-radius: 999px;
-            background-color: var(--body);
-            z-index: 2;
+            z-index: 3;
         }
 
         .text-btn {
             position: relative;
-            z-index: 2;
+            z-index: 4;
             display: flex;
             align-items: center;
             gap: 20px;
@@ -966,20 +1004,11 @@ a:hover {
             background-clip: text;
             color: transparent;
         }
-
-        &:hover {
-            // background: linear-gradient(90deg, #fdb79e 0%, #fff 100%);
-            // .text-btn{}
-        }
     }
 
-    &.hv-scale {
-        &:hover {
-            transform: translateY(-2px);
-        }
-    }
+    &.btn-tab {
+        border: unset;
 
-    &.hv-linear {
 
         &::after {
             content: "";
@@ -989,6 +1018,8 @@ a:hover {
             right: 0;
             bottom: 0;
             border-radius: 999px;
+            z-index: 1;
+
             background: linear-gradient(90deg,
                     #fdb79e 0%,
                     #fdd1b1 25%,
@@ -1000,40 +1031,112 @@ a:hover {
             animation: bgMove 3s linear infinite;
             @include transition3();
             @include hidden();
+
         }
 
-        .text-btn {
-            position: relative;
-            z-index: 2;
-            @include transition3();
-            color: var(--white);
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .overlay_text {
+            @include hidden();
         }
 
-        &:hover,
         &.active {
+            .overlay_text {
+                @include visible();
+            }
+
             &::after {
                 @include visible();
             }
 
             .text-btn {
-                color: var(--black);
+                position: relative;
+                z-index: 4;
+                background: linear-gradient(90deg,
+                        #fdb79e 0%,
+                        #fdd1b1 25%,
+                        #feeacd 50%,
+                        #fdd1b1 75%,
+                        #fdb79e 100%);
+                background-size: 200% 100%;
+                background-position: 200% 0;
+                animation: bgMove 3s linear infinite;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                color: transparent;
             }
         }
     }
 
+
+    // &.active-linear {
+    //     &::after {
+    //         content: "";
+    //         position: absolute;
+    //         top: 0;
+    //         left: 0;
+    //         right: 0;
+    //         bottom: 0;
+    //         border-radius: 999px;
+    //         background: linear-gradient(90deg,
+    //                 #fdb79e 0%,
+    //                 #fdd1b1 25%,
+    //                 #feeacd 50%,
+    //                 #fdd1b1 75%,
+    //                 #fdb79e 100%);
+    //         background-size: 200% 100%;
+    //         background-position: 200% 0;
+    //         animation: bgMove 3s linear infinite;
+    //         @include transition3();
+    //         @include hidden();
+    //     }
+
+    //     .text-btn {
+    //         position: relative;
+    //         @include transition3();
+    //         color: var(--white);
+    //         z-index: 1;
+    //     }
+
+    //     &.active {
+    //         &::after {
+    //             @include visible();
+    //         }
+
+    //         .text-btn {
+    //             color: var(--black);
+    //         }
+    //     }
+    // }
+
     &.btn-bg-linear {
         color: var(--black);
 
+        background: linear-gradient(90deg,
+                #fdb79e 0%,
+                #fdd1b1 25%,
+                #feeacd 50%,
+                #fdd1b1 75%,
+                #fdb79e 100%);
+        background-size: 200% 100%;
+        background-position: 200% 0;
+        animation: bgMoveSmooth 3s linear infinite;
     }
 
     .text_btn {
         display: flex;
         align-items: center;
         gap: 20px;
+    }
+
+    .text-btn {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        z-index: 4;
+
+        &.gap-20 {
+            gap: 20px;
+        }
     }
 
     &.style-large {
@@ -1053,6 +1156,7 @@ a:hover {
 
     @include res(xxl) {
         padding: 13px 25px;
+        height: 52px;
     }
 }
 
@@ -1609,7 +1713,7 @@ header {
 
     .s-item {
         position: absolute;
-        top: 0;
+        top: 64px;
         left: 0;
         right: 0;
         z-index: 0;
@@ -1908,6 +2012,10 @@ header {
 
     }
 
+    .text_coming {
+        display: none;
+    }
+
     &.style-2 {
         padding: 12px;
         padding-bottom: 24px;
@@ -1950,6 +2058,37 @@ header {
                 right: 0;
                 bottom: 0;
             }
+        }
+    }
+
+    &.soon {
+        pointer-events: none;
+
+        .image {
+            position: relative;
+            overflow: hidden;
+
+            &::after {
+                // border-radius: 8px;
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            }
+        }
+
+        .text_coming {
+            position: absolute;
+            z-index: 2;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-weight: 700;
+            display: unset;
         }
     }
 
@@ -2283,7 +2422,7 @@ header {
     position: relative;
 
     .grid-tech {
-        margin-bottom: 40px;
+        // margin-bottom: 40px;
     }
 
     .s-item_blum {
@@ -2622,7 +2761,8 @@ header {
 }
 
 .form-get_email {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 98.21%);
+    // background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 98.21%);
+    background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid #FFFFFF1A;
     backdrop-filter: blur(4px);
     padding: 11px;
@@ -2814,6 +2954,37 @@ header {
 
     50% {
         transform: translateY(-5px);
-        /* lên 5px */
+    }
+}
+
+@-webkit-keyframes shine {
+    100% {
+        left: -200%;
+    }
+}
+
+@keyframes shine {
+    100% {
+        left: -200%;
+    }
+}
+
+@-webkit-keyframes shine2 {
+    20% {
+        left: -200%;
+    }
+
+    100% {
+        left: -200%;
+    }
+}
+
+@keyframes shine2 {
+    20% {
+        left: -200%;
+    }
+
+    100% {
+        left: -200%;
     }
 }
