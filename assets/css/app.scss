@@ -330,7 +330,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-    // width: 0px;
+    width: 0px;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -1339,38 +1339,43 @@ header {
         z-index: 3;
 
         &.pst_1 {
-            top: 10%;
-            left: 10%;
+            top: 15.4%;
+            left: 6.45%;
         }
 
         &.pst_2 {
-            top: 50%;
-            left: 12%;
+            top: 85.5%;
+            left: 8.85%;
         }
 
         &.pst_3 {
-            top: 30%;
-            left: 20%;
+            top: 48.3%;
+            left: 25.2%;
         }
 
         &.pst_4 {
-            top: 10%;
-            left: 60%;
+            top: -12.8%;
+            left: 63.7%;
         }
 
         &.pst_5 {
-            top: 15%;
-            left: 70%;
+            top: 6.1%;
+            left: 85.5%;
         }
 
         &.pst_6 {
-            top: 78%;
-            left: 60%;
+            top: 72.2%;
+            left: 93.72%;
         }
 
         &.pst_7 {
-            top: 90%;
-            left: 90%;
+            top: 51%;
+            left: 84%;
+        }
+
+        &.pst_8 {
+            top: 75.47%;
+            left: 73.2%;
         }
     }
 
@@ -2777,4 +2782,38 @@ header {
 .effect-scroll-2 {
     transform-origin: 50% 0;
     will-change: transform, opacity;
+}
+
+.rotate-infinite {
+    animation: rotate 2s linear infinite;
+    transform-origin: center;
+
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.bounce-soft {
+    display: inline-block;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+        /* lên 5px */
+    }
 }
