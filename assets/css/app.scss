@@ -1996,9 +1996,23 @@ header {
     .image {
         border-radius: 8px;
         overflow: hidden;
+        position: relative;
 
         img {
             aspect-ratio: calc(300/344);
+        }
+
+        &::after {
+            // border-radius: 8px;
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+            @include transition3();
+            @include hidden();
         }
     }
 
@@ -2010,10 +2024,30 @@ header {
             background-color: var(--primary);
         }
 
+        .image {
+            &::after {
+                top: 0;
+                @include visible();
+            }
+        }
+
+        .text_coming {
+            @include visible();
+        }
+
     }
 
     .text_coming {
-        display: none;
+        position: absolute;
+        z-index: 2;
+        bottom: 8px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-weight: 700;
+        // display: unset;
+        @include transition3();
+        @include hidden();
     }
 
     &.style-2 {
@@ -2069,26 +2103,14 @@ header {
             overflow: hidden;
 
             &::after {
-                // border-radius: 8px;
-                content: "";
-                position: absolute;
                 top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+                @include visible();
             }
+
         }
 
         .text_coming {
-            position: absolute;
-            z-index: 2;
-            bottom: 8px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-weight: 700;
-            display: unset;
+            @include visible();
         }
     }
 
