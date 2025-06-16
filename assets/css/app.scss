@@ -1270,7 +1270,15 @@ header {
         display: block;
         width: 26px;
         height: 2px;
-        background-color: var(--black);
+        background: linear-gradient(90deg,
+                #fdb79e 0%,
+                #fdd1b1 25%,
+                #feeacd 50%,
+                #fdd1b1 75%,
+                #fdb79e 100%);
+        background-size: 200% 100%;
+        background-position: 200% 0;
+        animation: bgMoveSmooth 3s linear infinite;
         border-radius: 5px;
     }
 
@@ -1280,7 +1288,15 @@ header {
         position: absolute;
         width: 26px;
         height: 2px;
-        background-color: var(--black);
+        background: linear-gradient(90deg,
+                #fdb79e 0%,
+                #fdd1b1 25%,
+                #feeacd 50%,
+                #fdd1b1 75%,
+                #fdb79e 100%);
+        background-size: 200% 100%;
+        background-position: 200% 0;
+        animation: bgMoveSmooth 3s linear infinite;
         border-radius: 1px;
         @include transition3;
     }
@@ -1991,12 +2007,22 @@ header {
         font-size: 20px;
         line-height: 20px;
         text-transform: capitalize;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .btn-view_demo {
+        position: absolute;
+        z-index: 3;
+        @include hidden();
     }
 
     .image {
         border-radius: 8px;
         overflow: hidden;
         position: relative;
+        @include flex(center, center);
 
         img {
             aspect-ratio: calc(300/344);
@@ -2031,23 +2057,14 @@ header {
             }
         }
 
-        .text_coming {
+        .btn-view_demo {
             @include visible();
         }
-
     }
 
     .text_coming {
-        position: absolute;
-        z-index: 2;
-        bottom: 8px;
-        left: 0;
-        right: 0;
-        text-align: center;
         font-weight: 700;
-        // display: unset;
         @include transition3();
-        @include hidden();
     }
 
     &.style-2 {
@@ -2116,6 +2133,25 @@ header {
 
     @include res(md) {
         margin-bottom: 32px;
+
+        &:not(.style-2) {
+            padding: 12px 8px;
+            position: relative;
+
+            .btn-view_demo {
+                padding: 20px 10px;
+                height: 44px;
+            }
+
+            .text_coming {
+                position: absolute;
+                // top: 50%;
+                left: 10px;
+                right: 10px;
+                bottom: 56px;
+                text-align: center;
+            }
+        }
     }
 }
 

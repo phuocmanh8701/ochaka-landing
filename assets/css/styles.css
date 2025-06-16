@@ -1003,7 +1003,10 @@ header {
   display: block;
   width: 26px;
   height: 2px;
-  background-color: var(--black);
+  background: linear-gradient(90deg, #fdb79e 0%, #fdd1b1 25%, #feeacd 50%, #fdd1b1 75%, #fdb79e 100%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  animation: bgMoveSmooth 3s linear infinite;
   border-radius: 5px;
 }
 .btn-mobile-menu::after, .btn-mobile-menu::before {
@@ -1011,7 +1014,10 @@ header {
   position: absolute;
   width: 26px;
   height: 2px;
-  background-color: var(--black);
+  background: linear-gradient(90deg, #fdb79e 0%, #fdd1b1 25%, #feeacd 50%, #fdd1b1 75%, #fdb79e 100%);
+  background-size: 200% 100%;
+  background-position: 200% 0;
+  animation: bgMoveSmooth 3s linear infinite;
   border-radius: 1px;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -1657,11 +1663,23 @@ header {
   font-size: 20px;
   line-height: 20px;
   text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.home-demo_box .btn-view_demo {
+  position: absolute;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
 }
 .home-demo_box .image {
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .home-demo_box .image img {
   aspect-ratio: 0.8720930233;
@@ -1694,25 +1712,17 @@ header {
   opacity: 1;
   visibility: visible;
 }
-.home-demo_box:hover .text_coming {
+.home-demo_box:hover .btn-view_demo {
   opacity: 1;
   visibility: visible;
 }
 .home-demo_box .text_coming {
-  position: absolute;
-  z-index: 2;
-  bottom: 8px;
-  left: 0;
-  right: 0;
-  text-align: center;
   font-weight: 700;
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  opacity: 0;
-  visibility: hidden;
 }
 .home-demo_box.style-2 {
   padding: 12px;
@@ -1778,6 +1788,21 @@ header {
 @media (max-width: 767px) {
   .home-demo_box {
     margin-bottom: 32px;
+  }
+  .home-demo_box:not(.style-2) {
+    padding: 12px 8px;
+    position: relative;
+  }
+  .home-demo_box:not(.style-2) .btn-view_demo {
+    padding: 20px 10px;
+    height: 44px;
+  }
+  .home-demo_box:not(.style-2) .text_coming {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 56px;
+    text-align: center;
   }
 }
 
