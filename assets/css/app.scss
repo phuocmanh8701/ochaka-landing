@@ -1696,14 +1696,14 @@ header {
     text-align: center;
 
     .title {
-        margin-bottom: 32px;
+        padding-bottom: 32px;
     }
 
     @include res(xl) {
         margin-bottom: 40px;
 
         .title {
-            margin-bottom: 24px;
+            padding-bottom: 24px;
         }
     }
 }

@@ -1363,14 +1363,14 @@ header {
   text-align: center;
 }
 .s-title .title {
-  margin-bottom: 32px;
+  padding-bottom: 32px;
 }
 @media (max-width: 1199px) {
   .s-title {
     margin-bottom: 40px;
   }
   .s-title .title {
-    margin-bottom: 24px;
+    padding-bottom: 24px;
   }
 }
 
