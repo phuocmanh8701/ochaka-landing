@@ -1408,6 +1408,27 @@ header {
   }
 }
 
+.initial-child-container {
+  flex: 0 0 auto;
+  display: flex;
+  min-width: auto;
+  flex-direction: row;
+  align-items: center;
+  gap: 56px;
+}
+.initial-child-container p {
+  font-weight: 600;
+  font-size: clamp(64px, 10vw, 150px);
+  line-height: clamp(64px, 10vw, 150px);
+}
+
+.marquee-wrapper {
+  display: flex;
+  animation: infiniteScroll 20s linear infinite;
+  align-items: center;
+  transition: animation-duration 100ms;
+}
+
 .text-clip {
   color: var(--body);
   -webkit-text-stroke: 1px white;
@@ -2608,6 +2629,14 @@ header {
   }
   100% {
     left: -200%;
+  }
+}
+@keyframes infiniteScroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }
 
