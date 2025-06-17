@@ -934,14 +934,8 @@ a:hover {
 
 /* -- Header -- */
 .tf-header {
-  padding-top: 33px;
-  padding-bottom: 33px;
-}
-@media (max-width: 1199px) {
-  .tf-header {
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 @media (max-width: 991px) {
   .tf-header {
@@ -1135,6 +1129,7 @@ header {
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  color: rgba(255, 255, 255, 0.5019607843);
 }
 .s-sub-title.wid-fix {
   max-width: 792px;
@@ -1363,14 +1358,11 @@ header {
   text-align: center;
 }
 .s-title .title {
-  padding-bottom: 32px;
+  padding-bottom: 15px;
 }
 @media (max-width: 1199px) {
   .s-title {
     margin-bottom: 40px;
-  }
-  .s-title .title {
-    padding-bottom: 24px;
   }
 }
 
@@ -1759,10 +1751,10 @@ header {
 .home-demo_box.style-2::after {
   content: "";
   position: absolute;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   border: 1px solid;
   border-image-source: linear-gradient(90deg, #FDB79E 0%, #FEEACD 100%);
   border-image-slice: 1;
@@ -1781,10 +1773,6 @@ header {
 .home-demo_box.style-2:hover::after {
   opacity: 1;
   visibility: visible;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }
 .home-demo_box.soon {
   pointer-events: none;
@@ -2025,10 +2013,10 @@ header {
 .wg-box-icon::after {
   content: "";
   position: absolute;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
   border: 1px solid;
   border-image-source: linear-gradient(90deg, #FDB79E 0%, #FEEACD 100%);
   border-image-slice: 1;
@@ -2049,10 +2037,6 @@ header {
 .wg-box-icon:hover::after {
   opacity: 1;
   visibility: visible;
-  top: -1px;
-  left: -1px;
-  right: -1px;
-  bottom: -1px;
 }
 @media (min-width: 1200px) {
   .wg-box-icon {
