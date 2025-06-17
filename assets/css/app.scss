@@ -2479,10 +2479,6 @@ header {
 .s-tech-use {
     position: relative;
 
-    .grid-tech {
-        // margin-bottom: 40px;
-    }
-
     .s-item_blum {
         position: absolute;
         z-index: -1;
@@ -2490,12 +2486,6 @@ header {
         top: -900px;
         right: 0;
         display: flex;
-    }
-
-    @include res(xl, min) {
-        .grid-tech {
-            margin-bottom: 64px;
-        }
     }
 }
 
