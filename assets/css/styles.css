@@ -1461,11 +1461,11 @@ header {
   white-space: nowrap;
 }
 
-.infiniteSlide-text p {
+.infiniteSlide p {
   font-weight: 600;
 }
 
-.infiniteSlide p {
+.infiniteSlide-text p {
   font-weight: 600;
   font-size: clamp(64px, 10vw, 150px);
   line-height: clamp(64px, 10vw, 150px);

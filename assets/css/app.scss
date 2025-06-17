@@ -1802,14 +1802,14 @@ header {
     white-space: nowrap;
 }
 
-.infiniteSlide-text {
+.infiniteSlide {
     p {
         font-weight: 600;
         // line-height: clamp(58px, 7vw, 84px);
     }
 }
 
-.infiniteSlide {
+.infiniteSlide-text {
     p {
         font-weight: 600;
         font-size: clamp(64px, 10vw, 150px);
