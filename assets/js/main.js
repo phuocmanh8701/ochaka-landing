@@ -524,7 +524,31 @@
             });
         }
     };
+    /* Go Top
+    -------------------------------------------------------------------------*/
+    var goTop = function () {
+        var $goTop = $("#goTop");
+        var $borderProgress = $(".border-progress");
 
+        $(window).on("scroll", function () {
+            var scrollTop = $(window).scrollTop();
+            var docHeight = $(document).height() - $(window).height();
+            var scrollPercent = (scrollTop / docHeight) * 100;
+            var progressAngle = (scrollPercent / 100) * 360;
+
+            $borderProgress.css("--progress-angle", progressAngle + "deg");
+
+            if (scrollTop > 100) {
+                $goTop.addClass("show");
+            } else {
+                $goTop.removeClass("show");
+            }
+        });
+
+        $goTop.on("click", function () {
+            $("html, body").animate({ scrollTop: 0 }, 0);
+        });
+    };
     $(function () {
         headerSticky();
         infiniteSlide();
@@ -532,6 +556,7 @@
         filterIsotope();
         counter();
         reveal();
+        goTop();
         new WOW().init();
     });
 })(jQuery);
