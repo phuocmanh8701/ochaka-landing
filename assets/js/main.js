@@ -41,226 +41,6 @@
         }, 250);
     };
 
-    if ($(".slider-home").length > 0) {
-        // var swiper = new Swiper(".slider-home", {
-        //     loop: true,
-        //     spaceBetween: 0,
-        //     slidesPerView: 1.2,
-        //     centeredSlides: true,
-        //     // autoplay: true,
-        //     speed: 1000,
-        //     observer: true,
-        //     observeParents: true,
-        //     freeMode: false,
-        //     watchSlidesProgress: true,
-        //     effect: "coverflow",
-        //     grabCursor: true,
-        //     coverflowEffect: {
-        //         rotate: 0,
-        //         stretch: 604,
-        //         stretch: 500,
-        //         depth: 0,
-        //         modifier: 1,
-        //         scale: 1,
-        //         slideShadows: false,
-        //     },
-        //     breakpoints: {
-        //         0: {
-        //             slidesPerView: 1.1,
-        //             coverflowEffect: {
-        //                 stretch: 100,
-        //             },
-        //         },
-        //         1441: {
-        //             slidesPerView: 1.2,
-        //         },
-        //     },
-        // });
-        // const sliderHome = new Swiper(".slider-home", {
-        //     effect: "coverflow",
-        //     loop: true,
-        //     centeredSlides: true,
-        //     slidesPerView: 3,
-        //     grabCursor: true,
-        //     spaceBetween: 0,
-        //     coverflowEffect: {
-        //         rotate: 0,
-        //         stretch: -60,
-        //         depth: 150,
-        //         modifier: 1.5,
-        //         slideShadows: false,
-        //     },
-        //     navigation: {
-        //         nextEl: ".swiper-button-next",
-        //         prevEl: ".swiper-button-prev",
-        //     },
-        // });
-
-        var swiper = new Swiper(".slider-home", {
-            loop: true,
-            spaceBetween: 0,
-            slidesPerView: 1.2,
-            centeredSlides: true,
-            // autoplay: true,
-            speed: 1000,
-            observer: true,
-            observeParents: true,
-            freeMode: false,
-            watchSlidesProgress: true,
-            effect: "coverflow",
-            grabCursor: true,
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 604,
-                stretch: 500,
-                depth: 0,
-                modifier: 1,
-                scale: 1,
-                slideShadows: false,
-            },
-            breakpoints: {
-                0: {
-                    slidesPerView: 1.2,
-                    coverflowEffect: {
-                        stretch: 100,
-                    },
-                },
-
-                1439: {
-                    slidesPerView: 1.8,
-                },
-                1599: {
-                    slidesPerView: 2.1,
-                },
-            },
-        });
-    }
-
-    $(window).on("load", function () {
-        $(".tf-swiper").each(function (index, element) {
-            var $this = $(element);
-            var preview = $this.data("preview") || 1;
-            var tablet = $this.data("tablet") || 1;
-            var mobile = $this.data("mobile") || 1;
-            var mobileSm = $this.data("mobile-sm") !== undefined ? $this.data("mobile-sm") : mobile;
-
-            // Spacing
-            var spacing = $this.data("space");
-            var spacingMd = $this.data("space-md");
-            var spacingLg = $this.data("space-lg");
-            if (spacing !== undefined && spacingMd === undefined && spacingLg === undefined) {
-                spacingMd = spacing;
-                spacingLg = spacing;
-            } else if (spacing === undefined && spacingMd !== undefined && spacingLg === undefined) {
-                spacing = 0;
-                spacingLg = spacingMd;
-            }
-            spacing = spacing || 0;
-            spacingMd = spacingMd || 0;
-            spacingLg = spacingLg || 0;
-
-            var perGroup = $this.data("pagination") || 1;
-            var perGroupSm = $this.data("pagination-sm") || 1;
-            var perGroupMd = $this.data("pagination-md") || 1;
-            var perGroupLg = $this.data("pagination-lg") || 1;
-            var gridRows = $this.data("grid") || 1;
-            var cursorType = $this.data("cursor") ?? false;
-            var loop = $this.data("loop") ?? false;
-            var loopMd = $this.data("loop-md") ?? false;
-            var effect = $this.data("effect") || "slide";
-            var atPlay = $this.data("auto"); // True || False
-            var speed = $this.data("speed") || 800;
-            var delay = $this.data("delay") || 1000;
-            var direction = $this.data("direction") || "horizontal";
-            var centered = $this.data("center") ?? false;
-            var init = $this.data("init") || 0;
-
-            var swiperT = new Swiper($this[0], {
-                direction: direction,
-                speed: speed,
-                centeredSlides: centered,
-                slidesPerView: mobile,
-                spaceBetween: spacing,
-                slidesPerGroup: perGroup,
-                grabCursor: cursorType,
-                loop: loop,
-                effect: effect,
-                initialSlide: init,
-                autoplay: atPlay
-                    ? {
-                          delay: delay,
-                          disableOnInteraction: false,
-                          pauseOnMouseEnter: true,
-                      }
-                    : false,
-                grid: {
-                    rows: gridRows,
-                    fill: "row",
-                },
-                pagination: {
-                    el: ".tf-sw-pagination",
-                    clickable: true,
-                },
-                observer: true,
-                observeParents: true,
-                // navigation: {
-                //     nextEl: [
-                //         $this.closest(".tf-btn-swiper-main").find(".nav-next-swiper")[0],
-                //         $this.closest(".container").find(".group-btn-slider .nav-next-swiper")[0],
-                //     ],
-                //     prevEl: [
-                //         $this.closest(".tf-btn-swiper-main").find(".nav-prev-swiper")[0],
-                //         $this.closest(".container").find(".group-btn-slider .nav-prev-swiper")[0],
-                //     ],
-                // },
-                breakpoints: {
-                    575: {
-                        slidesPerView: mobileSm,
-                        spaceBetween: spacing,
-                        slidesPerGroup: perGroupSm,
-                        grid: {
-                            rows: gridRows,
-                            fill: "row",
-                        },
-                    },
-                    768: {
-                        slidesPerView: tablet,
-                        spaceBetween: spacingMd,
-                        slidesPerGroup: perGroupMd,
-                        grid: {
-                            rows: gridRows,
-                            fill: "row",
-                        },
-                    },
-                    1200: {
-                        slidesPerView: preview,
-                        spaceBetween: spacingLg,
-                        slidesPerGroup: perGroupLg,
-                        grid: {
-                            rows: gridRows,
-                            fill: "row",
-                        },
-                    },
-                },
-            });
-            $(".swiper-button")
-                .on("mouseenter", function () {
-                    var slideIndex = $(this).data("slide");
-                    swiperT.slideTo(slideIndex, 500, false);
-
-                    $(".tf-swiper .card_product--V01.style_2").removeClass("active");
-                    $(".tf-swiper .card_product--V01.style_2").eq(slideIndex).addClass("active");
-                })
-                .on("mouseleave", function () {
-                    $(".tf-swiper .card_product--V01.style_2").removeClass("active");
-                })
-                .on("click", function () {
-                    var slideIndex = $(this).data("slide");
-                    $(".tf-swiper .card_product--V01.style_2").eq(slideIndex).toggleClass("clicked");
-                });
-        });
-    });
-
     /* Infinite Slide 
     -------------------------------------------------------------------------*/
     var infiniteSlide = function () {
@@ -524,6 +304,174 @@
             });
         }
     };
+
+    var slideWrap = () => {
+        $(".tf-swiper").each(function (index, element) {
+            var $this = $(element);
+            var preview = $this.data("preview") || 1;
+            var tablet = $this.data("tablet") || 1;
+            var mobile = $this.data("mobile") || 1;
+            var mobileSm = $this.data("mobile-sm") !== undefined ? $this.data("mobile-sm") : mobile;
+
+            // Spacing
+            var spacing = $this.data("space");
+            var spacingMd = $this.data("space-md");
+            var spacingLg = $this.data("space-lg");
+            if (spacing !== undefined && spacingMd === undefined && spacingLg === undefined) {
+                spacingMd = spacing;
+                spacingLg = spacing;
+            } else if (spacing === undefined && spacingMd !== undefined && spacingLg === undefined) {
+                spacing = 0;
+                spacingLg = spacingMd;
+            }
+            spacing = spacing || 0;
+            spacingMd = spacingMd || 0;
+            spacingLg = spacingLg || 0;
+
+            var perGroup = $this.data("pagination") || 1;
+            var perGroupSm = $this.data("pagination-sm") || 1;
+            var perGroupMd = $this.data("pagination-md") || 1;
+            var perGroupLg = $this.data("pagination-lg") || 1;
+            var gridRows = $this.data("grid") || 1;
+            var cursorType = $this.data("cursor") ?? false;
+            var loop = $this.data("loop") ?? false;
+            var loopMd = $this.data("loop-md") ?? false;
+            var effect = $this.data("effect") || "slide";
+            var atPlay = $this.data("auto"); // True || False
+            var speed = $this.data("speed") || 800;
+            var delay = $this.data("delay") || 1000;
+            var direction = $this.data("direction") || "horizontal";
+            var centered = $this.data("center") ?? false;
+            var init = $this.data("init") || 0;
+
+            var swiperT = new Swiper($this[0], {
+                direction: direction,
+                speed: speed,
+                centeredSlides: centered,
+                slidesPerView: mobile,
+                spaceBetween: spacing,
+                slidesPerGroup: perGroup,
+                grabCursor: cursorType,
+                loop: loop,
+                effect: effect,
+                initialSlide: init,
+                autoplay: atPlay
+                    ? {
+                          delay: delay,
+                          disableOnInteraction: false,
+                          pauseOnMouseEnter: true,
+                      }
+                    : false,
+                grid: {
+                    rows: gridRows,
+                    fill: "row",
+                },
+                pagination: {
+                    el: ".tf-sw-pagination",
+                    clickable: true,
+                },
+                observer: true,
+                observeParents: true,
+                // navigation: {
+                //     nextEl: [
+                //         $this.closest(".tf-btn-swiper-main").find(".nav-next-swiper")[0],
+                //         $this.closest(".container").find(".group-btn-slider .nav-next-swiper")[0],
+                //     ],
+                //     prevEl: [
+                //         $this.closest(".tf-btn-swiper-main").find(".nav-prev-swiper")[0],
+                //         $this.closest(".container").find(".group-btn-slider .nav-prev-swiper")[0],
+                //     ],
+                // },
+                breakpoints: {
+                    575: {
+                        slidesPerView: mobileSm,
+                        spaceBetween: spacing,
+                        slidesPerGroup: perGroupSm,
+                        grid: {
+                            rows: gridRows,
+                            fill: "row",
+                        },
+                    },
+                    768: {
+                        slidesPerView: tablet,
+                        spaceBetween: spacingMd,
+                        slidesPerGroup: perGroupMd,
+                        grid: {
+                            rows: gridRows,
+                            fill: "row",
+                        },
+                    },
+                    1200: {
+                        slidesPerView: preview,
+                        spaceBetween: spacingLg,
+                        slidesPerGroup: perGroupLg,
+                        grid: {
+                            rows: gridRows,
+                            fill: "row",
+                        },
+                    },
+                },
+            });
+            $(".swiper-button")
+                .on("mouseenter", function () {
+                    var slideIndex = $(this).data("slide");
+                    swiperT.slideTo(slideIndex, 500, false);
+
+                    $(".tf-swiper .card_product--V01.style_2").removeClass("active");
+                    $(".tf-swiper .card_product--V01.style_2").eq(slideIndex).addClass("active");
+                })
+                .on("mouseleave", function () {
+                    $(".tf-swiper .card_product--V01.style_2").removeClass("active");
+                })
+                .on("click", function () {
+                    var slideIndex = $(this).data("slide");
+                    $(".tf-swiper .card_product--V01.style_2").eq(slideIndex).toggleClass("clicked");
+                });
+        });
+        if ($(".slider-home").length > 0) {
+            var swiper = new Swiper(".slider-home", {
+                spaceBetween: 0,
+                slidesPerView: 1.2,
+                centeredSlides: true,
+                speed: 1000,
+                observer: true,
+                observeParents: true,
+                freeMode: false,
+                // watchSlidesProgress: true,
+                effect: "coverflow",
+                loop: true,
+                grabCursor: true,
+                coverflowEffect: {
+                    rotate: 0,
+                    // stretch: 604,
+                    stretch: 500,
+                    depth: 0,
+                    modifier: 1,
+                    scale: 1,
+                    slideShadows: false,
+                },
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1.2,
+                        coverflowEffect: {
+                            stretch: 100,
+                        },
+                    },
+
+                    1439: {
+                        slidesPerView: 1.8,
+                    },
+                    1599: {
+                        slidesPerView: 2.1,
+                    },
+                },
+            });
+            setTimeout(() => {
+                swiper.update();
+            }, 200);
+        }
+        $(".slider-home_container").addClass("loaded");
+    };
     /* Go Top
     -------------------------------------------------------------------------*/
     var goTop = function () {
@@ -549,14 +497,24 @@
             $("html, body").animate({ scrollTop: 0 }, 0);
         });
     };
+
+    /* Preloader
+    -------------------------------------------------------------------------*/
+    var preloader = function () {
+        $("#preload").fadeOut("slow", function () {
+            var $this = $(this);
+            $this.remove();
+        });
+    };
     $(function () {
+        slideWrap();
         headerSticky();
         infiniteSlide();
-        // anime();
         filterIsotope();
         counter();
         reveal();
         goTop();
         new WOW().init();
+        preloader();
     });
 })(jQuery);

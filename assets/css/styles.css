@@ -753,7 +753,48 @@ a:hover {
   }
 }
 
-/* End -- Reset CSS */
+/* Preload 
+------------------------------------------- */
+.preload-container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 99999999999;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 3px solid transparent;
+  border-top: 3px solid #ff9068;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .link {
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
@@ -765,6 +806,7 @@ a:hover {
   color: var(--primary) !important;
 }
 
+/* End -- Reset CSS */
 /* Button */
 .tf-btn {
   display: inline-flex;
@@ -1289,6 +1331,17 @@ header {
   }
 }
 
+.slider-home_container {
+  opacity: 0;
+  transition: opacity 0.6s ease 0.6s;
+}
+.slider-home_container.loaded {
+  opacity: 1;
+}
+
+.slider-home {
+  width: 99.99%;
+}
 .slider-home .swiper-slide {
   transition: all 0.3s ease;
   height: 720px;
