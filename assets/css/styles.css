@@ -1472,8 +1472,8 @@ header {
 
 .hero-title-2 {
   font-weight: 600;
-  font-size: clamp(40px, 6vw, 80px);
-  line-height: clamp(40px, 6vw, 80px);
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: clamp(36px, 6vw, 64px);
 }
 
 .s-title {
@@ -2371,11 +2371,11 @@ header {
   padding-top: 144px;
   padding-bottom: 141px;
 }
-.footer-inner .hero-title {
+.footer-inner .ft-title {
   margin-bottom: 40px;
 }
 @media (min-width: 1200px) {
-  .footer-inner .hero-title {
+  .footer-inner .ft-title {
     margin-bottom: 64px;
   }
 }
@@ -2632,6 +2632,14 @@ header {
   .form-content_fieldset {
     flex-direction: column;
   }
+}
+
+.s-figma {
+  padding: 69px 48px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(234, 234, 234, 0.3) 4.67%, rgba(2, 2, 6, 0.3) 55.94%);
+  backdrop-filter: blur(20px);
+  display: flex;
 }
 
 /* Animation */
