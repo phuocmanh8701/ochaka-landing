@@ -1598,7 +1598,19 @@
         </section>
         <!-- /Make -->
         <!-- Device Mobile -->
-        <section class="flat-spacing pt-0" id="Mobiles">
+        <section class="s-device-mobile flat-spacing pt-0" id="Mobiles">
+            <span class="s-item_blum">
+                <svg width="1184" height="2370" viewBox="0 0 1184 2370" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle opacity="0.5" cx="-1" cy="1185" r="1185" fill="url(#paint0_radial_794_11954)" />
+                    <defs>
+                        <radialGradient id="paint0_radial_794_11954" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                            gradientTransform="translate(-1.00008 1185) rotate(112.41) scale(896.644)">
+                            <stop offset="0" stop-color="#5A6BD5" />
+                            <stop offset="1" stop-color="#020206" stop-opacity="0" />
+                        </radialGradient>
+                    </defs>
+                </svg>
+            </span>
             <div class="container">
                 <div class="s-title wow fadeInUp">
                     <p class="title text-linear hero-title-2">
@@ -1667,55 +1679,95 @@
         </div>
         <!-- /Marquee -->
         <!-- Free Figma -->
-        <section class="flat-spacing d-none">
+        <section class="flat-spacing pb-0">
             <div class="container">
                 <div class="s-figma">
                     <div class="content-left">
-                        <div class="s-title text-start">
+                        <div class="s-title text-lg-start">
                             <h2 class="title hero-title-2 text-linear">
                                 Free Figma template <br>
                                 sign up now
                             </h2>
-                            <p class="s-sub-title h5 text-start">
+                            <p class="s-sub-title h5 text-lg-start">
                                 Sign up and get a high-quality Figma design file, free of charge.
                                 No spam, just useful <br> content and design resources.
                             </p>
                         </div>
-                        <form class="form-get_email">
-                            <div class="form-content">
+                        <form class="form-get_email" id="subscribe-form">
+                            <div class="form-content" id="subscribe-content">
                                 <fieldset class="ip">
-                                    <input type="email" placeholder="Enter your email" required>
+                                    <input id="subscribe-email" type="email" placeholder="Enter your email" required>
                                 </fieldset>
                                 <fieldset class="btnSubmit">
-                                    <button type="submit" class="tf-btn btn-bg-linear ani-bg_linear w-100">
+                                    <button id="subscribe-button" type="submit" class="tf-btn btn-bg-linear ani-bg_linear w-100">
                                         Subscribe Now
                                         <i class="icon icon-arrow-circle-right"></i>
                                     </button>
                                 </fieldset>
                             </div>
+                            <div id="subscribe-msg"></div>
                         </form>
                     </div>
                     <div class="content-right">
-                        <img class="lazyload" src="assets/image/item/figma.webp" data-src="assets/image/item/figma.webp" alt="Image Figma">
+                        <div class="image-logo">
+                            <img class="lazyload" src="assets/image/item/figma.webp" data-src="assets/image/item/figma.webp" alt="Image Figma">
+                        </div>
+                        <div class="item-blur green">
+                            <svg width="1156" height="1156" viewBox="0 0 1156 1156" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle opacity="0.3" cx="578" cy="578" r="578" fill="url(#paint0_radial_3472_16533)" />
+                                <defs>
+                                    <radialGradient id="paint0_radial_3472_16533" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                                        gradientTransform="translate(578 578) rotate(123.425) scale(539.174)">
+                                        <stop offset="0" stop-color="#57A551" />
+                                        <stop offset="1" stop-color="#020206" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="item-blur brown">
+                            <svg width="982" height="1156" viewBox="0 0 982 1156" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle opacity="0.3" cx="578" cy="578" r="578" fill="url(#paint0_radial_3472_16532)" />
+                                <defs>
+                                    <radialGradient id="paint0_radial_3472_16532" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                                        gradientTransform="translate(578 578) rotate(123.425) scale(539.174)">
+                                        <stop stop-color="#B24F3F" />
+                                        <stop offset="1" stop-color="#020206" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="item-blur purple">
+                            <svg width="990" height="1156" viewBox="0 0 990 1156" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle opacity="0.3" cx="578" cy="578" r="578" fill="url(#paint0_radial_3472_16531)" />
+                                <defs>
+                                    <radialGradient id="paint0_radial_3472_16531" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                                        gradientTransform="translate(578 578) rotate(123.425) scale(539.174)">
+                                        <stop stop-color="#A26DDE" />
+                                        <stop offset="1" stop-color="#020206" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="item-blur blue">
+                            <svg width="1156" height="1156" viewBox="0 0 1156 1156" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle opacity="0.3" cx="578" cy="578" r="578" fill="url(#paint0_radial_3472_16530)" />
+                                <defs>
+                                    <radialGradient id="paint0_radial_3472_16530" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+                                        gradientTransform="translate(578 578) rotate(123.425) scale(539.174)">
+                                        <stop stop-color="#1523BE" />
+                                        <stop offset="1" stop-color="#020206" stop-opacity="0" />
+                                    </radialGradient>
+                                </defs>
+                            </svg>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- /Free Figma -->
         <!-- Tech Use -->
-        <section class="s-tech-use flat-spacing pb-0">
-            <span class="s-item_blum">
-                <svg width="1184" height="2370" viewBox="0 0 1184 2370" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle opacity="0.5" cx="-1" cy="1185" r="1185" fill="url(#paint0_radial_794_11954)" />
-                    <defs>
-                        <radialGradient id="paint0_radial_794_11954" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
-                            gradientTransform="translate(-1.00008 1185) rotate(112.41) scale(896.644)">
-                            <stop offset="0" stop-color="#5A6BD5" />
-                            <stop offset="1" stop-color="#020206" stop-opacity="0" />
-                        </radialGradient>
-                    </defs>
-                </svg>
-            </span>
+        <section class="s-tech-use flat-spacing">
             <div class="container">
                 <div class="s-title wow fadeInUp">
                     <p class="title text-linear hero-title-2">
