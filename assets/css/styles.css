@@ -1932,6 +1932,9 @@ header {
     bottom: 56px;
     text-align: center;
   }
+  .home-demo_box.new .text_coming {
+    position: unset;
+  }
 }
 
 .s-get-start {

@@ -2286,6 +2286,12 @@ header {
                 text-align: center;
             }
         }
+
+        &.new {
+            .text_coming {
+                position: unset;
+            }
+        }
     }
 }
 
